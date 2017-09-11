@@ -315,9 +315,9 @@ public extension Date {
         get {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                              month  : self.month,   //今月1日
-                                                              day    : 1,            //今月1日
-                                                              hour   : 12,           //今月1日13時
+                                                              month  : self.month,      //今月1日
+                                                              day    : 1,               //今月1日
+                                                              hour   : 12,              //今月1日13時
                                                               minute : 00))
             return Date.WeekDay(date: date!)
         }
@@ -326,9 +326,9 @@ public extension Date {
     public static func FirstDayOfWeek(date: Date) -> String {
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : date.year,
-                                                          month  : date.month,       //今月
-                                                          day    : 01,               //今月1日
-                                                          hour   : 13,               //今月1日13時
+                                                          month  : date.month,          //今月
+                                                          day    : 01,                  //今月1日
+                                                          hour   : 13,                  //今月1日13時
                                                           minute : 00))
         return Date.WeekDay(date: date!)
     }
