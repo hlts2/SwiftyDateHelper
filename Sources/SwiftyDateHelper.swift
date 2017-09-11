@@ -285,6 +285,16 @@ public extension Date {
         formatter.dateFormat = "ss"
         return Int(formatter.string(from: date))!
     }
+}
+
+//Extraction day
+public extension Date {
+    
+    public static var today: Date {
+        get {
+            return Date()
+        }
+    }
     
 }
 
@@ -352,13 +362,8 @@ public extension Date {
     
 }
 
+//Date Calcuration
 public extension Date {
-    
-    public static var today: Date {
-        get {
-            return Date()
-        }
-    }
     
     public func beforeYear(_ year: Int) -> Date {
         let num = day < 0 ? -1 * day : day
@@ -369,7 +374,22 @@ public extension Date {
                                                           day    : self.day,
                                                           hour   : self.hour,
                                                           minute : self.minute))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func afterYear(_ year: Int) -> Date {
+        let num = day < 0 ? -1 * day : day
         
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year + num,
+                                                          month  : self.day,
+                                                          day    : self.day,
+                                                          hour   : self.hour,
+                                                          minute : self.minute))
         if let date = date {
             return date
         } else {
@@ -386,7 +406,22 @@ public extension Date {
                                                           day    : self.day,
                                                           hour   : self.hour,
                                                           minute : self.minute))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func afterMonth(_ month: Int) -> Date {
+        let num = day < 0 ? -1 * day : day
         
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.day + num,
+                                                          day    : self.day,
+                                                          hour   : self.hour,
+                                                          minute : self.minute))
         if let date = date {
             return date
         } else {
@@ -403,7 +438,6 @@ public extension Date {
                                                           day    : self.day - num,
                                                           hour   : self.hour,
                                                           minute : self.minute))
-        
         if let date = date {
             return date
         } else {
@@ -411,4 +445,19 @@ public extension Date {
         }
     }
     
+    public func afterDay(_ day: Int) -> Date {
+        let num = day < 0 ? -1 * day : day
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.day,
+                                                          day    : self.day + num,
+                                                          hour   : self.hour,
+                                                          minute : self.minute))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
 }
