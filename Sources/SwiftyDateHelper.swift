@@ -292,7 +292,6 @@ public extension Date {
             return Date()
         }
     }
-    
 }
 
 //Extraction Week Day
@@ -309,7 +308,6 @@ public extension Date {
     public static func WeekDay(date: Date) -> String {
         let weekDay   = Calendar.current.component(.weekday, from: date)
         let formatter = DateFormatter()
-        
         return formatter.weekdaySymbols[weekDay - 1]
     }
     
