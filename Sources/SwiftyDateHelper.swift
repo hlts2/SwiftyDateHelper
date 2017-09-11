@@ -360,32 +360,49 @@ public extension Date {
 //Check Week Day
 public extension Date {
     
-    public func isSunday() {
-        
+    private enum week: Int {
+        case sunDay
+        case monDay
+        case tuesDay
+        case wednesDay
+        case thursDay
+        case friDay
+        case saturDay
     }
     
-    public func isMonday() {
-        
+    public func isSunday() -> Bool {
+        let weekDay = Calendar.current.component(.weekday, from: self)
+        return weekDay - 1 == week.sunDay.rawValue
     }
     
-    public func isTuesday() {
-        
+    public func isMonday() -> Bool {
+        let weekDay = Calendar.current.component(.weekday, from: self)
+        return weekDay - 1 == week.monDay.rawValue
     }
     
-    public func isWednesday() {
-        
+    public func isTuesday() -> Bool {
+        let weekDay = Calendar.current.component(.weekday, from: self)
+        return weekDay - 1 == week.tuesDay.rawValue
     }
     
-    public func isThursday() {
-        
+    public func isWednesday() -> Bool {
+        let weekDay = Calendar.current.component(.weekday, from: self)
+        return weekDay - 1 == week.wednesDay.rawValue
     }
     
-    public func isFriday() {
-        
+    public func isThursday() -> Bool {
+        let weekDay = Calendar.current.component(.weekday, from: self)
+        return weekDay - 1 == week.thursDay.rawValue
     }
     
-    public func isSaturday() {
-        
+    public func isFriday() -> Bool {
+        let weekDay = Calendar.current.component(.weekday, from: self)
+        return weekDay - 1 == week.friDay.rawValue
+    }
+    
+    public func isSaturday() -> Bool {
+        let weekDay = Calendar.current.component(.weekday, from: self)
+        return weekDay - 1 == week.saturDay.rawValue
     }
 }
 
