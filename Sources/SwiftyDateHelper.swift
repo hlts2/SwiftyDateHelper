@@ -352,7 +352,63 @@ public extension Date {
     
 }
 
-//Date Caluculation
 public extension Date {
-    //TODO
+    
+    public static var today: Date {
+        get {
+            return Date()
+        }
+    }
+    
+    public func beforeYear(_ year: Int) -> Date {
+        let num = day < 0 ? -1 * day : day
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year - num,
+                                                          month  : self.day,
+                                                          day    : self.day,
+                                                          hour   : self.hour,
+                                                          minute : self.minute))
+        
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func beforeMonth(_ month: Int) -> Date {
+        let num = day < 0 ? -1 * day : day
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.day - num,
+                                                          day    : self.day,
+                                                          hour   : self.hour,
+                                                          minute : self.minute))
+        
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func beforeDay(_ day: Int) -> Date {
+        let num = day < 0 ? -1 * day : day
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.day,
+                                                          day    : self.day - num,
+                                                          hour   : self.hour,
+                                                          minute : self.minute))
+        
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
 }
