@@ -410,7 +410,7 @@ public extension Date {
 public extension Date {
 
     public func beforeYear(_ year: Int) -> Date {
-        let num = day < 0 ? -1 * day : day
+        let num = year < 0 ? -1 * year : year
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year - num,
@@ -426,7 +426,7 @@ public extension Date {
     }
 
     public func afterYear(_ year: Int) -> Date {
-        let num = day < 0 ? -1 * day : day
+        let num = year < 0 ? -1 * year : year
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year + num,
@@ -442,7 +442,7 @@ public extension Date {
     }
 
     public func beforeMonth(_ month: Int) -> Date {
-        let num = day < 0 ? -1 * day : day
+        let num = month < 0 ? -1 * month : month
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
@@ -458,7 +458,7 @@ public extension Date {
     }
 
     public func afterMonth(_ month: Int) -> Date {
-        let num = day < 0 ? -1 * day : day
+        let num = month < 0 ? -1 * month : month
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
