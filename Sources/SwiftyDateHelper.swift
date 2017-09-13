@@ -2,10 +2,10 @@ import Foundation
 
 //Custom Initializer
 public extension Date {
-    
+
     public init(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) {
         self.init()
-        
+
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : year,
                                                           month  : month,
@@ -18,7 +18,7 @@ public extension Date {
             self = Date()
         }
     }
-    
+
     public init(year: Int) {
         self.init()
         let now      = Date()
@@ -34,7 +34,7 @@ public extension Date {
             self = now
         }
     }
-    
+
     public init(month: Int) {
         self.init()
         let now = Date()
@@ -50,7 +50,7 @@ public extension Date {
             self = now
         }
     }
-    
+
     public init(hour: Int) {
         self.init()
         let now = Date()
@@ -66,7 +66,7 @@ public extension Date {
             self = now
         }
     }
-    
+
     public init(minute: Int) {
         self.init()
         let now = Date()
@@ -82,7 +82,7 @@ public extension Date {
             self = now
         }
     }
-    
+
     public init(second: Int) {
         self.init()
         let now = Date()
@@ -103,14 +103,14 @@ public extension Date {
 
 //Transform
 public extension Date {
-    
-    public func toString(format: String) -> String {
+
+    public func toString(format: String = "yyyy/MM/dd HH:mm:ss") -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: self)
     }
-    
-    public static func ToString(date: Date, format: String) -> String {
+
+    public static func ToString(date: Date, format: String = "yyyy/MM/dd HH:mm:ss") -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: date)
@@ -119,14 +119,14 @@ public extension Date {
 
 //Date Getter & Setter
 public extension Date {
-    
+
     public var year: Int {
         get {
             let formatter = DateFormatter()
             formatter.dateFormat = "YYYY"
             return Int(formatter.string(from: self))!
         }
-        
+
         set {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : newValue,
@@ -139,22 +139,22 @@ public extension Date {
                 self = date
             }
         }
-        
+
     }
-    
+
     public static func Year(date: Date) -> Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY"
         return Int(formatter.string(from: date))!
     }
-    
+
     public var month: Int {
         get {
             let formatter = DateFormatter()
             formatter.dateFormat = "MM"
             return Int(formatter.string(from: self))!
         }
-        
+
         set {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
@@ -168,20 +168,20 @@ public extension Date {
             }
         }
     }
-    
+
     public static func Month(date: Date) -> Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM"
         return Int(formatter.string(from: date))!
     }
-    
+
     public var day: Int {
         get {
             let formatter = DateFormatter()
             formatter.dateFormat = "dd"
             return Int(formatter.string(from: self))!
         }
-        
+
         set {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
@@ -195,20 +195,20 @@ public extension Date {
             }
         }
     }
-    
+
     public static func Day(date: Date) -> Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"
         return Int(formatter.string(from: date))!
     }
-    
+
     public var hour: Int {
         get {
             let formatter = DateFormatter()
             formatter.dateFormat = "HH"
             return Int(formatter.string(from: self))!
         }
-        
+
         set {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
@@ -222,20 +222,20 @@ public extension Date {
             }
         }
     }
-    
+
     public static func Hour(date: Date) -> Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "HH"
         return Int(formatter.string(from: date))!
     }
-    
+
     public var minute: Int {
         get {
             let formatter = DateFormatter()
             formatter.dateFormat = "mm"
             return Int(formatter.string(from: self))!
         }
-        
+
         set {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
@@ -249,20 +249,20 @@ public extension Date {
             }
         }
     }
-    
+
     public static func Minute(date: Date) -> Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "mm"
         return Int(formatter.string(from: date))!
     }
-    
+
     public var second: Int {
         get {
             let formatter = DateFormatter()
             formatter.dateFormat = "ss"
             return Int(formatter.string(from: self))!
         }
-        
+
         set {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
@@ -276,7 +276,7 @@ public extension Date {
             }
         }
     }
-    
+
     public static func Second(date: Date) -> Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "ss"
@@ -286,7 +286,7 @@ public extension Date {
 
 //Extraction day
 public extension Date {
-    
+
     public static var today: Date {
         get {
             return Date()
@@ -296,7 +296,7 @@ public extension Date {
 
 //Extraction Week Day
 public extension Date {
-    
+
     public var weekDay: String {
         get {
             let weekDay   = Calendar.current.component(.weekday, from: self)
@@ -304,13 +304,13 @@ public extension Date {
             return formatter.weekdaySymbols[weekDay - 1]
         }
     }
-    
+
     public static func WeekDay(date: Date) -> String {
         let weekDay   = Calendar.current.component(.weekday, from: date)
         let formatter = DateFormatter()
         return formatter.weekdaySymbols[weekDay - 1]
     }
-    
+
     public var firstDayOfWeek: String {
         get {
             let calendar = Calendar(identifier: .gregorian)
@@ -322,7 +322,7 @@ public extension Date {
             return Date.WeekDay(date: date!)
         }
     }
-    
+
     public static func FirstDayOfWeek(date: Date) -> String {
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : date.year,
@@ -332,7 +332,7 @@ public extension Date {
                                                           minute : 00))
         return Date.WeekDay(date: date!)
     }
-    
+
     public var lastDayOfWeek: String {
         get {
             let calendar = Calendar(identifier: .gregorian)
@@ -344,7 +344,7 @@ public extension Date {
             return Date.WeekDay(date: date!)
         }
     }
-    
+
     public static func LastDayOfWeek(date: Date) -> String {
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year      : Int(date.year),
@@ -354,12 +354,12 @@ public extension Date {
                                                           minute    : 00))
         return Date.WeekDay(date: date!)
     }
-    
+
 }
 
 //Check Week Day
 public extension Date {
-    
+
     private enum week: Int {
         case sunDay
         case monDay
@@ -369,37 +369,37 @@ public extension Date {
         case friDay
         case saturDay
     }
-    
+
     public func isSunday() -> Bool {
         let weekDay = Calendar.current.component(.weekday, from: self)
         return weekDay - 1 == week.sunDay.rawValue
     }
-    
+
     public func isMonday() -> Bool {
         let weekDay = Calendar.current.component(.weekday, from: self)
         return weekDay - 1 == week.monDay.rawValue
     }
-    
+
     public func isTuesday() -> Bool {
         let weekDay = Calendar.current.component(.weekday, from: self)
         return weekDay - 1 == week.tuesDay.rawValue
     }
-    
+
     public func isWednesday() -> Bool {
         let weekDay = Calendar.current.component(.weekday, from: self)
         return weekDay - 1 == week.wednesDay.rawValue
     }
-    
+
     public func isThursday() -> Bool {
         let weekDay = Calendar.current.component(.weekday, from: self)
         return weekDay - 1 == week.thursDay.rawValue
     }
-    
+
     public func isFriday() -> Bool {
         let weekDay = Calendar.current.component(.weekday, from: self)
         return weekDay - 1 == week.friDay.rawValue
     }
-    
+
     public func isSaturday() -> Bool {
         let weekDay = Calendar.current.component(.weekday, from: self)
         return weekDay - 1 == week.saturDay.rawValue
@@ -408,10 +408,10 @@ public extension Date {
 
 //Date Calcuration
 public extension Date {
-    
+
     public func beforeYear(_ year: Int) -> Date {
         let num = day < 0 ? -1 * day : day
-        
+
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year - num,
                                                           month  : self.day,
@@ -424,10 +424,10 @@ public extension Date {
             return self
         }
     }
-    
+
     public func afterYear(_ year: Int) -> Date {
         let num = day < 0 ? -1 * day : day
-        
+
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year + num,
                                                           month  : self.day,
@@ -440,10 +440,10 @@ public extension Date {
             return self
         }
     }
-    
+
     public func beforeMonth(_ month: Int) -> Date {
         let num = day < 0 ? -1 * day : day
-        
+
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.day - num,
@@ -456,10 +456,10 @@ public extension Date {
             return self
         }
     }
-    
+
     public func afterMonth(_ month: Int) -> Date {
         let num = day < 0 ? -1 * day : day
-        
+
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.day + num,
@@ -472,10 +472,10 @@ public extension Date {
             return self
         }
     }
-    
+
     public func beforeDay(_ day: Int) -> Date {
         let num = day < 0 ? -1 * day : day
-        
+
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.day,
@@ -488,10 +488,10 @@ public extension Date {
             return self
         }
     }
-    
+
     public func afterDay(_ day: Int) -> Date {
         let num = day < 0 ? -1 * day : day
-        
+
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.day,
