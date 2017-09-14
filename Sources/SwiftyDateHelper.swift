@@ -5,10 +5,17 @@ public extension Date {
 
     public init(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) {
         self.init()
+        let year   = year   < 0 ? -1 * year   : year
+        let month  = month  < 0 ? -1 * month  : month
+        let day    = day    < 0 ? -1 * day    : day
+        let hour   = hour   < 0 ? -1 * hour   : hour
+        let minute = minute < 0 ? -1 * minute : minute
+        let second = second < 0 ? -1 * second : second
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : year,
                                                           month  : month,
+                                                          day    : day,
                                                           hour   : hour,
                                                           minute : minute,
                                                           second : second))
@@ -21,10 +28,13 @@ public extension Date {
 
     public init(year: Int) {
         self.init()
+        let year = year < 0 ? -1 * year : year
+        
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : year,
                                                           month  : now.month,
+                                                          day    : now.day,
                                                           hour   : now.hour,
                                                           minute : now.minute,
                                                           second : now.second))
@@ -37,10 +47,32 @@ public extension Date {
 
     public init(month: Int) {
         self.init()
+        let month = month < 0 ? -1 * month : month
+        
         let now = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
                                                           month  : month,
+                                                          day    : now.day,
+                                                          hour   : now.hour,
+                                                          minute : now.minute,
+                                                          second : now.second))
+        if let date = date {
+            self = date
+        } else {
+            self = now
+        }
+    }
+    
+    public init(day: Int) {
+        self.init()
+        let day = day < 0 ? -1 * day : day
+        
+        let now = Date()
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : now.year,
+                                                          month  : now.month,
+                                                          day    : day,
                                                           hour   : now.hour,
                                                           minute : now.minute,
                                                           second : now.second))
@@ -53,10 +85,13 @@ public extension Date {
 
     public init(hour: Int) {
         self.init()
+        let hour = hour < 0 ? -1 * hour : hour
+        
         let now = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
                                                           month  : now.month,
+                                                          day    : now.day,
                                                           hour   : hour,
                                                           minute : now.minute,
                                                           second : now.second))
@@ -69,10 +104,13 @@ public extension Date {
 
     public init(minute: Int) {
         self.init()
+        let minute = minute < 0 ? -1 * minute : minute
+        
         let now = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
                                                           month  : now.month,
+                                                          day    : now.day,
                                                           hour   : now.hour,
                                                           minute : minute,
                                                           second : now.second))
@@ -85,10 +123,13 @@ public extension Date {
 
     public init(second: Int) {
         self.init()
+        let second = second < 0 ? -1 * second : second
+        
         let now = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.month,
                                                           month  : now.month,
+                                                          day    : now.day,
                                                           hour   : now.hour,
                                                           minute : now.minute,
                                                           second : second))
