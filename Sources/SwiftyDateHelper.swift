@@ -458,7 +458,8 @@ public extension Date {
                                                           month  : self.day,
                                                           day    : self.day,
                                                           hour   : self.hour,
-                                                          minute : self.minute))
+                                                          minute : self.minute,
+                                                          second : self.second))
         if let date = date {
             return date
         } else {
@@ -474,7 +475,8 @@ public extension Date {
                                                           month  : self.day,
                                                           day    : self.day,
                                                           hour   : self.hour,
-                                                          minute : self.minute))
+                                                          minute : self.minute,
+                                                          second : self.second))
         if let date = date {
             return date
         } else {
@@ -490,7 +492,8 @@ public extension Date {
                                                           month  : self.day - month,
                                                           day    : self.day,
                                                           hour   : self.hour,
-                                                          minute : self.minute))
+                                                          minute : self.minute,
+                                                          second : self.second))
         if let date = date {
             return date
         } else {
@@ -506,14 +509,15 @@ public extension Date {
                                                           month  : self.day + month,
                                                           day    : self.day,
                                                           hour   : self.hour,
-                                                          minute : self.minute))
+                                                          minute : self.minute,
+                                                          second : self.second))
         if let date = date {
             return date
         } else {
             return self
         }
     }
-
+    
     public func beforeDay(_ day: Int) -> Date {
         let day = day < 0 ? -1 * day : day
 
@@ -522,7 +526,8 @@ public extension Date {
                                                           month  : self.day,
                                                           day    : self.day - day,
                                                           hour   : self.hour,
-                                                          minute : self.minute))
+                                                          minute : self.minute,
+                                                          second : self.second))
         if let date = date {
             return date
         } else {
@@ -538,7 +543,74 @@ public extension Date {
                                                           month  : self.day,
                                                           day    : self.day + day,
                                                           hour   : self.hour,
-                                                          minute : self.minute))
+                                                          minute : self.minute,
+                                                          second : self.second))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func beforeMinute(_ minute: Int) -> Date {
+        let minute = minute < 0 ? -1 * minute : minute
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.month,
+                                                          day    : self.day,
+                                                          hour   : self.hour,
+                                                          minute : self.minute - minute,
+                                                          second : self.second))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func afterMinute(_ minute: Int) -> Date {
+        let minute = minute < 0 ? -1 * minute : minute
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.month,
+                                                          day    : self.day,
+                                                          hour   : self.hour,
+                                                          minute : self.minute + minute,
+                                                          second : self.second))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func beforeSecond(_ second: Int) -> Date {
+        let second = second < 0 ? -1 * second : second
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.month,
+                                                          day    : self.day,
+                                                          minute : self.minute,
+                                                          second : self.second - second))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func afterSecond(_ second: Int) -> Date {
+        let second = second < 0 ? -1 * second : second
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.month,
+                                                          day    : self.day,
+                                                          minute : self.minute,
+                                                          second : self.second + second))
         if let date = date {
             return date
         } else {

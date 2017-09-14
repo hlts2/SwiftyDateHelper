@@ -98,15 +98,20 @@ class SwiftyDateHelperTests: XCTestCase {
     
     func testDateCalcuration() {
         let date = Date()
+        
         print(date.beforeYear(1))
         print(date.beforeMonth(1))
         print(date.beforeDay(1))
+        print(date.beforeSecond(1))
+        print(date.beforeSecond(1))
         
         print(date.afterYear(1))
         print(date.afterMonth(1))
         print(date.afterDay(1))
+        print(date.afterMinute(1))
+        print(date.afterSecond(1))
     }
-
+    
     static var allTests = [
         ("testInit", testInit),
         ("testTransform", testTransform),
@@ -114,6 +119,6 @@ class SwiftyDateHelperTests: XCTestCase {
         ("testdategetterwithstatic", testDateGetterWithStatic),
         ("testExtraction", testExtraction),
         ("testCheckWeekDay", testCheckWeekDay),
-        ("testDateCalcuration", testDateCalcuration)
+        ("testDateCalcuration", testDateCalcuration),
     ]
 }
