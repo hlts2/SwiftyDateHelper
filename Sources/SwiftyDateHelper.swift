@@ -638,12 +638,6 @@ public extension Calendar {
         }
     }
     
-    private var colRow: Int {
-        get {
-            return 6 * 7
-        }
-    }
-    
     public func thisMonthDates(date: Date) -> [CalendarCell] {
         var cells = [CalendarCell]()
         
