@@ -49,7 +49,7 @@ public extension Date {
         self.init()
         let month = month < 0 ? -1 * month : month
         
-        let now = Date()
+        let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
                                                           month  : month,
@@ -68,7 +68,7 @@ public extension Date {
         self.init()
         let day = day < 0 ? -1 * day : day
         
-        let now = Date()
+        let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
                                                           month  : now.month,
@@ -87,7 +87,7 @@ public extension Date {
         self.init()
         let hour = hour < 0 ? -1 * hour : hour
         
-        let now = Date()
+        let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
                                                           month  : now.month,
@@ -106,7 +106,7 @@ public extension Date {
         self.init()
         let minute = minute < 0 ? -1 * minute : minute
         
-        let now = Date()
+        let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
                                                           month  : now.month,
@@ -125,7 +125,7 @@ public extension Date {
         self.init()
         let second = second < 0 ? -1 * second : second
         
-        let now = Date()
+        let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.month,
                                                           month  : now.month,
@@ -336,7 +336,7 @@ public extension Date {
     
     public static var firstDate: Date {
         get {
-            let now = Date()
+            let now      = Date()
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : now.year,
                                                               month  : now.month,       //今月
@@ -352,9 +352,9 @@ public extension Date {
         get {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                              month  : self.month,      //今月
-                                                              day    : 01,              //今月1日
-                                                              hour   : 13,              //今月1日13時
+                                                              month  : self.month,      //Date今月
+                                                              day    : 01,              //Date今月1日
+                                                              hour   : 13,              //Date今月1日13時
                                                               minute : 00))
             
             return date!
@@ -363,7 +363,7 @@ public extension Date {
     
     public static var lastDate: Date {
         get {
-            let now = Date()
+            let now      = Date()
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : now.year,
                                                               month  : now.month + 1,   //翌月
@@ -379,9 +379,9 @@ public extension Date {
         get {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                              month  : self.month + 1,  //翌月
-                                                              day    : 01,              //翌月1日
-                                                              hour   : -1,              //翌月1日になったときの-1時間前 => 今月の最終日
+                                                              month  : self.month + 1,  //Date翌月
+                                                              day    : 01,              //Daet翌月1日
+                                                              hour   : -1,              //Date翌月1日になったときの-1時間前 => 今月の最終日
                                                               minute : 00))
             return date!
         }
