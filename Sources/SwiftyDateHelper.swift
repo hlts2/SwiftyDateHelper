@@ -333,48 +333,49 @@ public extension Date {
             return Date()
         }
     }
-}
-
-//Extraction Week Day
-public extension Date {
-
-    public var weekDay: String {
+    
+    public static var firstDate: Date {
         get {
-            let weekDay   = Calendar.current.component(.weekday, from: self)
-            let formatter = DateFormatter()
-            return formatter.weekdaySymbols[weekDay - 1]
+            let now = Date()
+            let calendar = Calendar(identifier: .gregorian)
+            let date     = calendar.date(from: DateComponents(year   : now.year,
+                                                              month  : now.month,       //今月
+                                                              day    : 01,              //今月1日
+                                                              hour   : 13,              //今月1日13時
+                                                              minute : 00))
+        
+            return date!
         }
     }
-
-    public static func WeekDay(date: Date) -> String {
-        let weekDay   = Calendar.current.component(.weekday, from: date)
-        let formatter = DateFormatter()
-        return formatter.weekdaySymbols[weekDay - 1]
-    }
-
-    public var firstDayOfWeek: String {
+    
+    public var firstDate: Date {
         get {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                              month  : self.month,      //今月1日
-                                                              day    : 1,               //今月1日
-                                                              hour   : 12,              //今月1日13時
+                                                              month  : self.month,      //今月
+                                                              day    : 01,              //今月1日
+                                                              hour   : 13,              //今月1日13時
                                                               minute : 00))
-            return Date.WeekDay(date: date!)
+            
+            return date!
         }
     }
-
-    public static func FirstDayOfWeek(date: Date) -> String {
-        let calendar = Calendar(identifier: .gregorian)
-        let date     = calendar.date(from: DateComponents(year   : date.year,
-                                                          month  : date.month,          //今月
-                                                          day    : 01,                  //今月1日
-                                                          hour   : 13,                  //今月1日13時
-                                                          minute : 00))
-        return Date.WeekDay(date: date!)
+    
+    public static var lastDate: Date {
+        get {
+            let now = Date()
+            let calendar = Calendar(identifier: .gregorian)
+            let date     = calendar.date(from: DateComponents(year   : now.year,
+                                                              month  : now.month + 1,   //翌月
+                                                              day    : 01,              //翌月1日
+                                                              hour   : -1,              //翌月1日になったときの-1時間前 => 今月の最終日
+                                                              minute : 00))
+        
+            return date!
+        }
     }
-
-    public var lastDayOfWeek: String {
+    
+    public var lastDate: Date {
         get {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
@@ -382,21 +383,73 @@ public extension Date {
                                                               day    : 01,              //翌月1日
                                                               hour   : -1,              //翌月1日になったときの-1時間前 => 今月の最終日
                                                               minute : 00))
-            return Date.WeekDay(date: date!)
+            return date!
         }
     }
-
-    public static func LastDayOfWeek(date: Date) -> String {
-        let calendar = Calendar(identifier: .gregorian)
-        let date     = calendar.date(from: DateComponents(year      : Int(date.year),
-                                                          month     : date.month + 1,
-                                                          day       : 01,
-                                                          hour      : -1,
-                                                          minute    : 00))
-        return Date.WeekDay(date: date!)
-    }
-
 }
+
+////Extraction Week Day
+//public extension Date {
+//
+//    public var weekDay: String {
+//        get {
+//            let weekDay   = Calendar.current.component(.weekday, from: self)
+//            let formatter = DateFormatter()
+//            return formatter.weekdaySymbols[weekDay - 1]
+//        }
+//    }
+//
+//    public static func WeekDay(date: Date) -> String {
+//        let weekDay   = Calendar.current.component(.weekday, from: date)
+//        let formatter = DateFormatter()
+//        return formatter.weekdaySymbols[weekDay - 1]
+//    }
+//
+//    public var firstDayOfWeek: String {
+//        get {
+//            let calendar = Calendar(identifier: .gregorian)
+//            let date     = calendar.date(from: DateComponents(year   : self.year,
+//                                                              month  : self.month,      //今月1日
+//                                                              day    : 1,               //今月1日
+//                                                              hour   : 13,              //今月1日13時
+//                                                              minute : 00))
+//            return Date.WeekDay(date: date!)
+//        }
+//    }
+//
+//    public static func FirstDayOfWeek(date: Date) -> String {
+//        let calendar = Calendar(identifier: .gregorian)
+//        let date     = calendar.date(from: DateComponents(year   : date.year,
+//                                                          month  : date.month,          //今月
+//                                                          day    : 01,                  //今月1日
+//                                                          hour   : 13,                  //今月1日13時
+//                                                          minute : 00))
+//        return Date.WeekDay(date: date!)
+//    }
+//
+//    public var lastDayOfWeek: String {
+//        get {
+//            let calendar = Calendar(identifier: .gregorian)
+//            let date     = calendar.date(from: DateComponents(year   : self.year,
+//                                                              month  : self.month + 1,  //翌月
+//                                                              day    : 01,              //翌月1日
+//                                                              hour   : -1,              //翌月1日になったときの-1時間前 => 今月の最終日
+//                                                              minute : 00))
+//            return Date.WeekDay(date: date!)
+//        }
+//    }
+//
+//    public static func LastDayOfWeek(date: Date) -> String {
+//        let calendar = Calendar(identifier: .gregorian)
+//        let date     = calendar.date(from: DateComponents(year      : Int(date.year),
+//                                                          month     : date.month + 1,
+//                                                          day       : 01,
+//                                                          hour      : -1,
+//                                                          minute    : 00))
+//        return Date.WeekDay(date: date!)
+//    }
+//
+//}
 
 //Check Week Day
 public extension Date {
@@ -616,5 +669,31 @@ public extension Date {
         } else {
             return self
         }
+    }
+}
+
+
+public extension Calendar {
+    
+    public struct CalendarCell {
+        public var year  : Int
+        public var month : Int
+        public var day   : Int
+        
+        init(year: Int, month: Int, day: Int) {
+            self.year  = year
+            self.month = month
+            self.day   = day
+        }
+    }
+    
+    private var colRow: Int {
+        get {
+            return 6 * 7
+        }
+    }
+    
+    public func calendarDatas(date: Date) -> [CalendarCell]? {
+        return nil
     }
 }

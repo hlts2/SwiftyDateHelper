@@ -71,17 +71,17 @@ class SwiftyDateHelperTests: XCTestCase {
     }
     
     func testExtraction() {
-        print(Date.today)
-        
-        let date = Date()
-        
-        print(date.weekDay)
-        print(date.firstDayOfWeek)
-        print(date.lastDayOfWeek)
-        
-        print(Date.WeekDay(date: Date()))
-        print(Date.FirstDayOfWeek(date: Date()))
-        print(Date.LastDayOfWeek(date: Date()))
+//        print(Date.today)
+//        
+//        let date = Date()
+//        
+//        print(date.weekDay)
+//        print(date.firstDayOfWeek)
+//        print(date.lastDayOfWeek)
+//        
+//        print(Date.WeekDay(date: Date()))
+//        print(Date.FirstDayOfWeek(date: Date()))
+//        print(Date.LastDayOfWeek(date: Date()))
     }
     
     func testCheckWeekDay() {
@@ -110,6 +110,7 @@ class SwiftyDateHelperTests: XCTestCase {
         print(date.afterDay(1))
         print(date.afterMinute(1))
         print(date.afterSecond(1))
+        
     }
     
     static var allTests = [
