@@ -97,6 +97,10 @@ class SwiftyDateHelperTests: XCTestCase {
         print(date.afterMinute(1))
         print(date.afterSecond(1))
         
+        
+        print("あああああ")
+        let calendar = Calendar(identifier: .gregorian)
+        print(calendar.thisMonthDates(date: Date()))
     }
     
     static var allTests = [

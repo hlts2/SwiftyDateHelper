@@ -409,7 +409,7 @@ public extension Date {
 //Check Week Day
 public extension Date {
 
-    private enum week: Int {
+    public enum week: Int {
         case sunDay
         case monDay
         case tuesDay
@@ -463,7 +463,7 @@ public extension Date {
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year - year,
-                                                          month  : self.day,
+                                                          month  : self.month,
                                                           day    : self.day,
                                                           hour   : self.hour,
                                                           minute : self.minute,
@@ -480,7 +480,7 @@ public extension Date {
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year + year,
-                                                          month  : self.day,
+                                                          month  : self.month,
                                                           day    : self.day,
                                                           hour   : self.hour,
                                                           minute : self.minute,
@@ -497,7 +497,7 @@ public extension Date {
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                          month  : self.day - month,
+                                                          month  : self.month - month,
                                                           day    : self.day,
                                                           hour   : self.hour,
                                                           minute : self.minute,
@@ -514,7 +514,7 @@ public extension Date {
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                          month  : self.day + month,
+                                                          month  : self.month + month,
                                                           day    : self.day,
                                                           hour   : self.hour,
                                                           minute : self.minute,
@@ -531,7 +531,7 @@ public extension Date {
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                          month  : self.day,
+                                                          month  : self.month,
                                                           day    : self.day - day,
                                                           hour   : self.hour,
                                                           minute : self.minute,
@@ -548,7 +548,7 @@ public extension Date {
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                          month  : self.day,
+                                                          month  : self.month,
                                                           day    : self.day + day,
                                                           hour   : self.hour,
                                                           minute : self.minute,
@@ -644,7 +644,18 @@ public extension Calendar {
         }
     }
     
-    public func calendarDatas(date: Date) -> [CalendarCell]? {
-        return nil
+    public func thisMonthDates(date: Date) -> [CalendarCell] {
+        var cells = [CalendarCell]()
+        
+        for i in 1..<date.lastDate.day {
+            if i == 1 {
+                cells.append(CalendarCell(date: date.firstDate))
+            } else {
+                cells.append(CalendarCell(date: date.firstDate.afterDay(i)))
+            }
+        }
+        
+        return cells
     }
+    
 }
