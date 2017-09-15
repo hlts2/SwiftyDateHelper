@@ -631,14 +631,10 @@ public extension Date {
 public extension Calendar {
     
     public struct CalendarCell {
-        public var year  : Int
-        public var month : Int
-        public var day   : Int
+        public var date: Date
         
-        init(year: Int, month: Int, day: Int) {
-            self.year  = year
-            self.month = month
-            self.day   = day
+        init(date: Date) {
+            self.date = date
         }
     }
     
