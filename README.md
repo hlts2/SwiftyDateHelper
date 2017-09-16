@@ -35,6 +35,32 @@ let date = Date(hour: 1)
 print(date.toString())         //2017/09/16 01:09:51
 
 
+//Transform
+let date = Date()
+print(date.toString())                //2017/09/16 20:09:51
+print(Date.ToString(date: Date()))    //2017/09/16 20:09:51
+
+
+//Date Getter
+var date = Date()       
+print(date.year)        //2017
+print(date.month)       //09
+print(date.day)         //16
+print(date.hour)        //20
+print(date.minute)      //09
+print(date.second)      //51
+
+
+//Date Setter
+let date    = Date()
+date.year   = 2011
+date.month  = 11
+date.day    = 11
+date.hour   = 1
+date.minute = 11
+date.second = 11
+print(date)             //2011/11/11 01:11:11
+
 ```
 
 ## Requirements
