@@ -339,9 +339,9 @@ public extension Date {
             let now      = Date()
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : now.year,
-                                                              month  : now.month,       //今月
-                                                              day    : 01,              //今月1日
-                                                              hour   : 13,              //今月1日13時
+                                                              month  : now.month,       //This month
+                                                              day    : 01,              //1 day
+                                                              hour   : 13,              //13 o'clock
                                                               minute : 00))
         
             return date!
@@ -352,9 +352,9 @@ public extension Date {
         get {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                              month  : self.month,      //Date今月
-                                                              day    : 01,              //Date今月1日
-                                                              hour   : 13,              //Date今月1日13時
+                                                              month  : self.month,      //The month of Date
+                                                              day    : 01,              //1 day
+                                                              hour   : 13,              //13 o'clock
                                                               minute : 00))
             
             return date!
@@ -366,9 +366,9 @@ public extension Date {
             let now      = Date()
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : now.year,
-                                                              month  : now.month + 1,   //翌月
-                                                              day    : 01,              //翌月1日
-                                                              hour   : -1,              //翌月1日になったときの-1時間前 => 今月の最終日
+                                                              month  : now.month + 1,   //Next month
+                                                              day    : 01,              //1 day
+                                                              hour   : -1,              //1 hour ago => the last day of this month
                                                               minute : 00))
         
             return date!
@@ -379,9 +379,9 @@ public extension Date {
         get {
             let calendar = Calendar(identifier: .gregorian)
             let date     = calendar.date(from: DateComponents(year   : self.year,
-                                                              month  : self.month + 1,  //Date翌月
-                                                              day    : 01,              //Daet翌月1日
-                                                              hour   : -1,              //Date翌月1日になったときの-1時間前 => 今月の最終日
+                                                              month  : self.month + 1,  //Next month of month of Date
+                                                              day    : 01,              //1 day
+                                                              hour   : -1,              //1 hour ago => The last day of the month of Date
                                                               minute : 00))
             return date!
         }
