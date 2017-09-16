@@ -4,10 +4,11 @@ import XCTest
 class SwiftyDateHelperTests: XCTestCase {
 
     func testInit() {
+        print("あああああああ")
         let date = Date(year  : 2017,
                         month : 11,
                         day   : 10,
-                        hour  : 1,
+                        hour  : 13,
                         minute: 20,
                         second: 2)
  
@@ -23,11 +24,11 @@ class SwiftyDateHelperTests: XCTestCase {
         
         //Day
         let dateWithDay = Date(day: 20)
-        print(dateWithDay)
+        print(dateWithDay.toString())
         
         //Hour
         let dateWithHour = Date(hour: 1)
-        print(dateWithHour)
+        print(dateWithHour.toString())
     }
 
     func testTransform() {
@@ -96,9 +97,9 @@ class SwiftyDateHelperTests: XCTestCase {
         print(date.afterDay(1))
         print(date.afterMinute(1))
         print(date.afterSecond(1))
-        
-        
-        print("あああああ")
+    }
+    
+    func testCalndarDate() {
         let calendar = Calendar(identifier: .gregorian)
         print(calendar.dates(date: Date()))
     }
@@ -110,5 +111,6 @@ class SwiftyDateHelperTests: XCTestCase {
         ("testdategetterwithstatic", testDateGetterWithStatic),
         ("testCheckWeekDay", testCheckWeekDay),
         ("testDateCalcuration", testDateCalcuration),
+        ("testCalndarDate", testCalndarDate),
     ]
 }
