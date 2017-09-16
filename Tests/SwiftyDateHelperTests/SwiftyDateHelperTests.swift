@@ -89,19 +89,21 @@ class SwiftyDateHelperTests: XCTestCase {
         print(date.beforeYear(1))
         print(date.beforeMonth(1))
         print(date.beforeDay(1))
-        print(date.beforeSecond(1))
+        print(date.beforeHour(1))
+        print(date.beforeMinute(1))
         print(date.beforeSecond(1))
         
         print(date.afterYear(1))
         print(date.afterMonth(1))
         print(date.afterDay(1))
+        print(date.afterHour(1))
         print(date.afterMinute(1))
         print(date.afterSecond(1))
     }
     
     func testCalndarDate() {
         let calendar = Calendar(identifier: .gregorian)
-        print(calendar.dates(date: Date()))
+        print(calendar.dates(date: Date()))        
     }
     
     static var allTests = [

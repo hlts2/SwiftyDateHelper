@@ -92,6 +92,10 @@ print(date.afterHour(1).toString())     //2017/09/16 21:09:51
 print(date.afterMinute(1).toString())   //2017/09/16 20:10:51
 print(date.afterSecond(1).toString())   //2017/09/16 20:09:52
 
+//Calendar Dates
+let calendar = Calendar(identifier: .gregorian)
+print(calendar.dates(date: Date()))     //Get the month's date of date
+
 ```
 
 ## Requirements
