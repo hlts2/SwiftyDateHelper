@@ -560,6 +560,40 @@ public extension Date {
         }
     }
     
+    public func beforeHour(_ hour: Int) -> Date {
+        let hour = hour < 0 ? -1 * hour : hour
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.month,
+                                                          day    : self.day,
+                                                          hour   : self.hour - hour,
+                                                          minute : self.minute,
+                                                          second : self.second))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
+    public func afterHour(_ hour: Int) -> Date {
+        let hour = hour < 0 ? -1 * hour : hour
+        
+        let calendar = Calendar(identifier: .gregorian)
+        let date     = calendar.date(from: DateComponents(year   : self.year,
+                                                          month  : self.month,
+                                                          day    : self.day,
+                                                          hour   : self.hour + hour,
+                                                          minute : self.minute,
+                                                          second : self.second))
+        if let date = date {
+            return date
+        } else {
+            return self
+        }
+    }
+    
     public func beforeMinute(_ minute: Int) -> Date {
         let minute = minute < 0 ? -1 * minute : minute
         
