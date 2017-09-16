@@ -100,7 +100,7 @@ class SwiftyDateHelperTests: XCTestCase {
         
         print("あああああ")
         let calendar = Calendar(identifier: .gregorian)
-        print(calendar.thisMonthDates(date: Date()))
+        print(calendar.dates(date: Date()))
     }
     
     static var allTests = [

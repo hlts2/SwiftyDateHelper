@@ -638,7 +638,7 @@ public extension Calendar {
         }
     }
     
-    public func thisMonthDates(date: Date) -> [CalendarCell] {
+    public func dates(date: Date) -> [CalendarCell] {
         var cells = [CalendarCell]()
         
         for i in 1..<date.lastDate.day {
