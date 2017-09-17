@@ -408,7 +408,6 @@ public extension Date {
     public static func WeekDay(date: Date) -> String {
         let weekDay      = Calendar.current.component(.weekday, from: date)
         let formatter    = DateFormatter()
-        formatter.locale = NSLocale.current
         return formatter.weekdaySymbols[weekDay - 1]
     }
 }
