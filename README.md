@@ -68,7 +68,7 @@ print(Date.Second(date: Date()))        //51
 
 //Get Week Day
 let date = Date()
-print(date.weekDay)                     //土曜日 or Saturday
+print(date.weekDay)                     //土曜日
 
 //Check Week Day
 let date = Date()       
