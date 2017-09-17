@@ -86,6 +86,7 @@ print(date.isSaturday())                //true
 
 //Date Calcuration
 let date = Date()
+print(date.toString())                  //2017/09/16 20:09:51
 print(date.beforeYear(1).toString())    //2016/09/16 20:09:51   
 print(date.beforeMonth(1).toString())   //2017/08/16 20:09:51
 print(date.beforeDay(1).toString())     //2017/09/15 20:09:51
