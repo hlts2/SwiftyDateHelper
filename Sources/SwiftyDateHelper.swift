@@ -400,7 +400,6 @@ public extension Date {
     public var weekDay: String {
         get {
             let formatter    = DateFormatter()
-            formatter.locale = NSLocale.current
             return formatter.weekdaySymbols[weekDayIndex - 1]
         }
     }
