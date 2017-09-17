@@ -66,6 +66,10 @@ print(Date.Hour(date: Date()))          //20
 print(Date.Minute(date: Date()))        //09
 print(Date.Second(date: Date()))        //51
 
+//Get Week Day Index
+let date = Date()
+print(date.weekDayIndex)               // 0 or 1 or 2, or 3 or 4 or 5 or 6
+                                       // 0 == Sunday 1 == monday.. etc
 //Get Week Day
 let date = Date()
 print(date.weekDay)                     //土曜日

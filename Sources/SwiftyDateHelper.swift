@@ -393,21 +393,21 @@ public extension Date {
     
     public var weekDayIndex: Int {
         get {
-            return Calendar.current.component(.weekday, from: self)
+            return Calendar.current.component(.weekday, from: self) - 1
         }
     }
     
     public var weekDay: String {
         get {
-            let formatter    = DateFormatter()
-            return formatter.weekdaySymbols[weekDayIndex - 1]
+            let formatter = DateFormatter()
+            return formatter.weekdaySymbols[weekDayIndex]
         }
     }
 
     public static func WeekDay(date: Date) -> String {
         let weekDay      = Calendar.current.component(.weekday, from: date)
         let formatter    = DateFormatter()
-        return formatter.weekdaySymbols[weekDay - 1]
+        return formatter.weekdaySymbols[weekDay]
     }
 }
 

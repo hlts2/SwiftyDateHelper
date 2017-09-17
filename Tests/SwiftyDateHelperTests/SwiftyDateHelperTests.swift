@@ -72,6 +72,7 @@ class SwiftyDateHelperTests: XCTestCase {
     
     func testWeekDay() {
         let date = Date()
+        print(date.weekDayIndex)
         print(date.weekDay)
     }
     
