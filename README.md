@@ -13,6 +13,11 @@ import SwiftyDateHelper
 
 ```swift
 
+//Transform
+let date = Date()
+print(date.toString())                  //2017/09/16 20:09:51
+print(Date.ToString(date: Date()))      //2017/09/16 20:09:51
+
 //Custom Initialize
 let date = Date(year  : 2017,
                 month : 11,
@@ -33,11 +38,6 @@ print(date.toString())                  //2017/09/20 20:09:51
 
 let date = Date(hour: 1)
 print(date.toString())                  //2017/09/16 01:09:51
-
-//Transform
-let date = Date()
-print(date.toString())                  //2017/09/16 20:09:51
-print(Date.ToString(date: Date()))      //2017/09/16 20:09:51
 
 //Date Getter
 var date = Date()       
