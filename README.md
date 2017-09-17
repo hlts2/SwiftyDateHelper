@@ -25,7 +25,7 @@ let date = Date(year  : 2017,
                 hour  : 13,
                 minute: 20,
                 second: 2)
-print(date.toString())                    //2017/11/10 13:20:02
+print(date.toString())                  //2017/11/10 13:20:02
 
 let date = Date(year: 2017)
 print(dateWithYear.toString())          //2017/09/16 20:07:11
