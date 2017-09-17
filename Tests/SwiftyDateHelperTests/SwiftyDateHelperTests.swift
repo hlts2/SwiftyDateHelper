@@ -10,7 +10,7 @@ class SwiftyDateHelperTests: XCTestCase {
                         hour  : 13,
                         minute: 20,
                         second: 2)
- 
+        
         print(date)
         
         //year

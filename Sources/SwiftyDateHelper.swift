@@ -390,18 +390,25 @@ public extension Date {
 
 //Extraction Week Day
 public extension Date {
-
+    
+    public var weekDayIndex: Int {
+        get {
+            return Calendar.current.component(.weekday, from: self)
+        }
+    }
+    
     public var weekDay: String {
         get {
-            let weekDay   = Calendar.current.component(.weekday, from: self)
-            let formatter = DateFormatter()
-            return formatter.weekdaySymbols[weekDay - 1]
+            let formatter    = DateFormatter()
+            formatter.locale = NSLocale.current
+            return formatter.weekdaySymbols[weekDayIndex - 1]
         }
     }
 
     public static func WeekDay(date: Date) -> String {
-        let weekDay   = Calendar.current.component(.weekday, from: date)
-        let formatter = DateFormatter()
+        let weekDay      = Calendar.current.component(.weekday, from: date)
+        let formatter    = DateFormatter()
+        formatter.locale = NSLocale.current
         return formatter.weekdaySymbols[weekDay - 1]
     }
 }
