@@ -4,7 +4,6 @@ import XCTest
 class SwiftyDateHelperTests: XCTestCase {
 
     func testInit() {
-        print("あああああああ")
         let date = Date(year  : 2017,
                         month : 11,
                         day   : 10,

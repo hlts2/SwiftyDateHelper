@@ -675,12 +675,9 @@ public extension Calendar {
     public func dates(date: Date) -> [CalendarCell] {
         var cells = [CalendarCell]()
         
+        cells.append(CalendarCell(date: date.firstDate))
         for i in 1..<date.lastDate.day {
-            if i == 1 {
-                cells.append(CalendarCell(date: date.firstDate))
-            } else {
-                cells.append(CalendarCell(date: date.firstDate.afterDay(i)))
-            }
+            cells.append(CalendarCell(date: date.firstDate.afterDay(i)))
         }
         
         return cells
