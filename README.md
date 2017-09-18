@@ -28,7 +28,7 @@ let date = Date(year  : 2017,
 print(date.toString())                  //2017/11/10 13:20:02
 
 let date = Date(year: 2017)
-print(date.toString())          //2017/09/16 20:07:11
+print(date.toString())                  //2017/09/16 20:07:11
 
 let date = Date(month: 11)
 print(date.toString())                  //2017/11/16 20:08:11
