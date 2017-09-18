@@ -3,16 +3,7 @@ import Foundation
 //Custom Initializer
 public extension Date {
 
-    public init?(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) {
-        guard year   >= 0,
-              month  >= 0,
-              day    >= 0,
-              hour   >= 0,
-              minute >= 0,
-              second >= 0 else {
-            return nil
-        }
-
+    public init(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) {
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : year,
                                                           month  : month,
@@ -27,11 +18,7 @@ public extension Date {
         }
     }
 
-    public init?(year: Int) {
-        guard year >= 0 else {
-            return nil
-        }
-        
+    public init(year: Int) {
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : year,
@@ -47,11 +34,7 @@ public extension Date {
         }
     }
 
-    public init?(month: Int) {
-        guard month >= 0 else {
-            return nil
-        }
-        
+    public init(month: Int) {
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
@@ -67,11 +50,7 @@ public extension Date {
         }
     }
     
-    public init?(day: Int) {
-        guard day >= 0 else {
-            return nil
-        }
-        
+    public init(day: Int) {
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
@@ -87,11 +66,7 @@ public extension Date {
         }
     }
 
-    public init?(hour: Int) {
-        guard hour >= 0 else {
-            return nil
-        }
-        
+    public init(hour: Int) {
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
@@ -107,11 +82,7 @@ public extension Date {
         }
     }
 
-    public init?(minute: Int) {
-        guard minute >= 0 else {
-            return nil
-        }
-        
+    public init(minute: Int) {
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.year,
@@ -127,11 +98,7 @@ public extension Date {
         }
     }
 
-    public init?(second: Int) {
-        guard second >= 0 else {
-            return nil
-        }
-        
+    public init(second: Int) {
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : now.month,

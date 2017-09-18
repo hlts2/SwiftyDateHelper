@@ -9,31 +9,31 @@ class SwiftyDateHelperTests: XCTestCase {
                         day   : 10,
                         hour  : 13,
                         minute: 20,
-                        second: 2)!
+                        second: 2)
         print(date)
         
         //year
-        let dateWithYear = Date(year: 2017)!
+        let dateWithYear = Date(year: 2017)
         print(dateWithYear)
         
         //Month
-        let dateWithMonth = Date(month: 11)!
+        let dateWithMonth = Date(month: 11)
         print(dateWithMonth)
         
         //Day
-        let dateWithDay = Date(day: 20)!
+        let dateWithDay = Date(day: 20)
         print(dateWithDay.toString())
         
         //Hour
-        let dateWithHour = Date(hour: 1)!
+        let dateWithHour = Date(hour: 1)
         print(dateWithHour.toString())
         
         //Minute
-        let dateWithMinute = Date(minute: 12)!
+        let dateWithMinute = Date(minute: 12)
         print(dateWithMinute)
         
         //Second
-        let dateWithSecond = Date(second: 1)!
+        let dateWithSecond = Date(second: 1)
         print(dateWithSecond)
     }
 
