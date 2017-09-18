@@ -56,7 +56,7 @@ date.day    = 11
 date.hour   = 1
 date.minute = 11
 date.second = 11
-print(date)                             //2011/11/11 01:11:11
+print(date.toString())                  //2011/11/11 01:11:11
 
 //Date Getter(Static Method)
 print(Date.Year(date: Date()))          //2017
