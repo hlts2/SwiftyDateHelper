@@ -3,14 +3,15 @@ import Foundation
 //Custom Initializer
 public extension Date {
 
-    public init(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) {
-        self.init()
-        let year   = year   < 0 ? -1 * year   : year
-        let month  = month  < 0 ? -1 * month  : month
-        let day    = day    < 0 ? -1 * day    : day
-        let hour   = hour   < 0 ? -1 * hour   : hour
-        let minute = minute < 0 ? -1 * minute : minute
-        let second = second < 0 ? -1 * second : second
+    public init?(year: Int, month: Int, day: Int, hour: Int, minute: Int, second: Int) {
+        guard year   >= 0,
+              month  >= 0,
+              day    >= 0,
+              hour   >= 0,
+              minute >= 0,
+              second >= 0 else {
+            return nil
+        }
 
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : year,
@@ -26,9 +27,10 @@ public extension Date {
         }
     }
 
-    public init(year: Int) {
-        self.init()
-        let year = year < 0 ? -1 * year : year
+    public init?(year: Int) {
+        guard year >= 0 else {
+            return nil
+        }
         
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -45,9 +47,10 @@ public extension Date {
         }
     }
 
-    public init(month: Int) {
-        self.init()
-        let month = month < 0 ? -1 * month : month
+    public init?(month: Int) {
+        guard month >= 0 else {
+            return nil
+        }
         
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -64,9 +67,10 @@ public extension Date {
         }
     }
     
-    public init(day: Int) {
-        self.init()
-        let day = day < 0 ? -1 * day : day
+    public init?(day: Int) {
+        guard day >= 0 else {
+            return nil
+        }
         
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -83,9 +87,10 @@ public extension Date {
         }
     }
 
-    public init(hour: Int) {
-        self.init()
-        let hour = hour < 0 ? -1 * hour : hour
+    public init?(hour: Int) {
+        guard hour >= 0 else {
+            return nil
+        }
         
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -102,9 +107,10 @@ public extension Date {
         }
     }
 
-    public init(minute: Int) {
-        self.init()
-        let minute = minute < 0 ? -1 * minute : minute
+    public init?(minute: Int) {
+        guard minute >= 0 else {
+            return nil
+        }
         
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -121,9 +127,10 @@ public extension Date {
         }
     }
 
-    public init(second: Int) {
-        self.init()
-        let second = second < 0 ? -1 * second : second
+    public init?(second: Int) {
+        guard second >= 0 else {
+            return nil
+        }
         
         let now      = Date()
         let calendar = Calendar(identifier: .gregorian)
@@ -464,8 +471,6 @@ public extension Date {
 public extension Date {
 
     public func beforeYear(_ year: Int) -> Date {
-        let year = year < 0 ? -1 * year : year
-
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year - year,
                                                           month  : self.month,
@@ -481,8 +486,6 @@ public extension Date {
     }
 
     public func afterYear(_ year: Int) -> Date {
-        let year = year < 0 ? -1 * year : year
-
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year + year,
                                                           month  : self.month,
@@ -498,8 +501,6 @@ public extension Date {
     }
 
     public func beforeMonth(_ month: Int) -> Date {
-        let month = month < 0 ? -1 * month : month
-
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month - month,
@@ -515,8 +516,6 @@ public extension Date {
     }
 
     public func afterMonth(_ month: Int) -> Date {
-        let month = month < 0 ? -1 * month : month
-
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month + month,
@@ -532,8 +531,6 @@ public extension Date {
     }
     
     public func beforeDay(_ day: Int) -> Date {
-        let day = day < 0 ? -1 * day : day
-
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
@@ -549,8 +546,6 @@ public extension Date {
     }
 
     public func afterDay(_ day: Int) -> Date {
-        let day = day < 0 ? -1 * day : day
-
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
@@ -566,8 +561,6 @@ public extension Date {
     }
     
     public func beforeHour(_ hour: Int) -> Date {
-        let hour = hour < 0 ? -1 * hour : hour
-        
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
@@ -583,8 +576,6 @@ public extension Date {
     }
     
     public func afterHour(_ hour: Int) -> Date {
-        let hour = hour < 0 ? -1 * hour : hour
-        
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
@@ -600,8 +591,6 @@ public extension Date {
     }
     
     public func beforeMinute(_ minute: Int) -> Date {
-        let minute = minute < 0 ? -1 * minute : minute
-        
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
@@ -617,8 +606,6 @@ public extension Date {
     }
     
     public func afterMinute(_ minute: Int) -> Date {
-        let minute = minute < 0 ? -1 * minute : minute
-        
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
@@ -634,8 +621,6 @@ public extension Date {
     }
     
     public func beforeSecond(_ second: Int) -> Date {
-        let second = second < 0 ? -1 * second : second
-        
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
@@ -650,8 +635,6 @@ public extension Date {
     }
     
     public func afterSecond(_ second: Int) -> Date {
-        let second = second < 0 ? -1 * second : second
-        
         let calendar = Calendar(identifier: .gregorian)
         let date     = calendar.date(from: DateComponents(year   : self.year,
                                                           month  : self.month,
