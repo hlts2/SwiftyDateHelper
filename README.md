@@ -18,7 +18,7 @@ let date = Date()
 print(date.toString())                  //2017/09/16 20:09:51
 print(Date.ToString(date: Date()))      //2017/09/16 20:09:51
 
-//Custom Initialize
+//Custom Initializer
 let date = Date(year  : 2017,
                 month : 11,
                 day   : 10,
@@ -103,7 +103,7 @@ print(date.afterSecond(1).toString())   //2017/09/16 20:09:52
 
 //Calendar Dates
 let calendar = Calendar(identifier: .gregorian)
-print(calendar.dates(date: Date()))     //Get the month's date of date
+print(calendar.dates(date: Date()))     //Get the month's dates of date
 
 ```
 
