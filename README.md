@@ -112,7 +112,7 @@ Swift3.0 or latter.
 
 ## Installation
 
-HttpSwift is available through [Carthage](https://github.com/Carthage/Carthage) or
+SwiftyDateHelper is available through [Carthage](https://github.com/Carthage/Carthage) or
 [Swift Package Manager](https://github.com/apple/swift-package-manager).
 
 ### Carthage
